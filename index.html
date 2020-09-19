@@ -24,39 +24,6 @@
   <body>
     <!--The div element for the map -->
     <div id="style-selector-control" class="map-control">
-      <input
-        type="radio"
-        name="show-hide"
-        id="injustice-view"
-        class="selector-control"
-        checked="checked"
-      />
-      <label for="injustice-view">Injustice View</label>
-      <input
-        type="radio"
-        name="show-hide"
-        id="default-view"
-        class="selector-control"
-      />
-      <label for="default-view">Default View</label>
-    </div>
-    <!--Code for the Pin-point button. Refer to line 60 in style.css-->
-    <div class="pinpoint">
-      <button class="pin">Pin</button>
-    </div>
-
-    <div class="menu-wrap">
-      <input type="checkbox" class="toggler" />
-      <div class="hamburger"><div></div></div>
-      <div class="menu">
-        <div>
-          <div>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Map</a></li>
-              <li><a href="#">Organizations</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
         <input
             type="radio"
             name="show-hide"
@@ -93,17 +60,6 @@
           </div>
         </div>
     </div>
-
-    <div class="sidebar">
-      <header>The Injustice Bar</header>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Map</a></li>
-        <li><a href="#">Organizations</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </div>
-
     <div id="map"></div>
     <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHtuUTxJUmmu5uV4cmssPGxZAzgB8d3Rg&callback=initMap"></script>
