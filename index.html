@@ -1,109 +1,113 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1.0">
-        <title>World View</title>
-        <link href="style.css" rel="stylesheet">
-        <link href="menu.css" rel="stylesheet">
-        <!--<link href="style.css" rel="stylesheet">-->
-        <style>
-            /* Set the size of the div element that contains the map */
-            #map {
-                height: 100%;  /* The height is 400 pixels */
-                width: 100%;  /* The width is the width of the web page */
-            }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0" />
+    <title>World View</title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="menu.css" rel="stylesheet" />
+    <!--<link href="style.css" rel="stylesheet">-->
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 100%; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
+      }
 
-            html, body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-            .map-control {
-                margin-right: 1em;
-                margin-top: 0.5em;
-                padding: 5px;
-                border-radius: 3px;
-                background-color: #fff;
-                border: 1px solid #ccc;
-                /*box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);*/
-                font-family: "Roboto", "sans-serif";
-                display: none;
-            }
+      .map-control {
+        margin-right: 1em;
+        margin-top: 0.5em;
+        padding: 5px;
+        border-radius: 3px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        /*box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);*/
+        font-family: "Roboto", "sans-serif";
+        display: none;
+      }
 
-            #map .map-control {
-                display: block;
-            }
+      #map .map-control {
+        display: block;
+      }
 
-            #content {
-                background-color: #FFF;
-                animation-name: show-content;
-            }
+      #content {
+        background-color: #fff;
+        animation-name: show-content;
+        animation-delay: 1s;
+      }
 
-            .content-string {
-                background-color: #FFF;
-                margin-right: 15px;
-                margin-left: 15px;
-                padding: 10px;
-                font-family: "Roboto", "sans-serif";
-                display: block;
-            }
+      .content-string {
+        background-color: #fff;
+        margin-right: 15px;
+        margin-left: 15px;
+        padding: 10px;
+        font-family: "Roboto", "sans-serif";
+        display: block;
+      }
 
-            .content-string:hover {
-                background-color: lightgray;
-            }
+      .content-string:hover {
+        background-color: lightgray;
+      }
 
-            .first-heading {
-                padding: 10px;
-            }
+      .first-heading {
+        padding: 10px;
+      }
 
-            #body-content {
-                font-size: 1.5em;
-            }
-
-        </style>
-    </head>
+      #body-content {
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
   <body>
     <!--The div element for the map -->
     <div id="style-selector-control" class="map-control">
-        <input
-            type="radio"
-            name="show-hide"
-            id="injustice-view"
-            class="selector-control"
-            checked="checked"
-        />
-        <label for="injustice-view">Injustice View</label>
-        <input
-            type="radio"
-            name="show-hide"
-            id="default-view"
-            class="selector-control"
-        />
-        <label for="default-view">Default View</label>
+      <input
+        type="radio"
+        name="show-hide"
+        id="injustice-view"
+        class="selector-control"
+        checked="checked"
+      />
+      <label for="injustice-view">Injustice View</label>
+      <input
+        type="radio"
+        name="show-hide"
+        id="default-view"
+        class="selector-control"
+      />
+      <label for="default-view">Default View</label>
     </div>
     <div class="menu-wrap">
-        <input type="checkbox" class="toggler">
-        <div class="hamburger"><div></div></div>
-        <div class="menu">
+      <input type="checkbox" class="toggler" />
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
           <div>
-            <div>
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Map</a></li>
-                <li><a href="#">Organizations</a></li>
-                <li><a href="#">Contact Us</a></li>
-              </ul>
-            </div>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Map</a></li>
+              <li><a href="#">Organizations</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
           </div>
         </div>
       </div>
-  
+    </div>
+
     <div id="map"></div>
     <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHtuUTxJUmmu5uV4cmssPGxZAzgB8d3Rg&callback=initMap"></script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHtuUTxJUmmu5uV4cmssPGxZAzgB8d3Rg&callback=initMap"
+    ></script>
     <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript" src="mapstyles.js"></script> 
+    <script type="text/javascript" src="mapstyles.js"></script>
   </body>
 </html>
