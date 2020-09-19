@@ -1,53 +1,101 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0">
-    <title>World View</title>
-    <link href="style.css" rel="stylesheet">
-    <style>
-       /* Set the size of the div element that contains the map */
-      #map {
-        height: 100%;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0">
+        <title>World View</title>
+        <link href="style.css" rel="stylesheet">
+        <style>
+            /* Set the size of the div element that contains the map */
+            #map {
+                height: 100%;  /* The height is 400 pixels */
+                width: 100%;  /* The width is the width of the web page */
+            }
 
-       html, body {
-           height: 100%;
-           margin: 0;
-           padding: 0;
-       }
-    </style>
-  </head>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
   <body>
     <!--The div element for the map -->
+    <div id="style-selector-control" class="map-control">
+        <input
+          type="radio"
+          name="show-hide"
+          id="hide-poi"
+          class="selector-control"
+        />
+        <label for="hide-poi">Hide</label>
+        <input
+          type="radio"
+          name="show-hide"
+          id="show-poi"
+          class="selector-control"
+          checked="checked"
+        />
+        <label for="show-poi">Show</label>
+    </div>
+  
     <div id="map"></div>
     <script>
+        let map;
+
         function initMap() {
-  
-          var map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 3,
-            center: {lat: -28.024, lng: 140.887}
-          });
-  
-          // Create an array of alphabetical characters used to label the markers.
-          var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  
-          // Add some markers to the map.
-          // Note: The code uses the JavaScript Array.prototype.map() method to
-          // create an array of markers based on a given "locations" array.
-          // The map() method here has nothing to do with the Google Maps API.
-          var markers = locations.map(function(location, i) {
-            return new google.maps.Marker({
-              position: location,
-              label: labels[i % labels.length]
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 3,
+                center: {lat: -28.024, lng: 140.887},
+                mapTypeControl: false
             });
-          });
-  
-          // Add a marker clusterer to manage the markers.
-          var markerCluster = new MarkerClusterer(map, markers,
-              {imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"});
+
+            // Add controls to the map, allowing users to hide/show features.
+            const styleControl = document.getElementById("style-selector-control");
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(styleControl);
+            // Apply new JSON when the user chooses to hide/show features.
+            document.getElementById("hide-poi").addEventListener("click", () => {
+                map.setOptions({ styles: styles["hide"] });
+            });
+            document.getElementById("show-poi").addEventListener("click", () => {
+                map.setOptions({ styles: styles["default"] });
+            });
+        
+            // Create an array of alphabetical characters used to label the markers.
+            var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+            // Add some markers to the map.
+            // Note: The code uses the JavaScript Array.prototype.map() method to
+            // create an array of markers based on a given "locations" array.
+            // The map() method here has nothing to do with the Google Maps API.
+            var markers = locations.map(function(location, i) {
+                return new google.maps.Marker({
+                position: location
+                //label: labels[i % labels.length]
+                });
+            });
+            // Add a marker clusterer to manage the markers.
+            var markerCluster = new MarkerClusterer(map, markers,
+                {imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"});
         }
+
+        // Show/hide map features
+        const styles = {
+            default: [],
+            hide: [
+                {
+                    featureType: "poi.business",
+                    stylers: [{ visibility: "off" }]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "labels.icon",
+                    stylers: [{ visibility: "off" }]
+                }
+            ]
+        };
+
+        // Put locations here
         var locations = [
             {lat: -31.563910, lng: 147.154312},
             {lat: -33.718234, lng: 150.363181},
