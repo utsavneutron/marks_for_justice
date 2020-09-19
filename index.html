@@ -3,21 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to HRX Beginners Track!</title>
+    <title>Social Injustice around the World</title>
     <link href="style.css" rel="stylesheet" />
-    <script src="https://unpkg.com/vue"></script>
+    <style>
+      #map {
+        height: 1000px;
+        width: 90%;
+      }
+    </style>
   </head>
   <body>
-    <div id="hrx_starter">
-      <h1>Welcome to HRX Beginners Track!</h1>
+    <h1>Social Injustice Maps</h1>
+    <p>Browse around to see the prevalence of injustices</p>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = { lat: -25.344, lng: 131.036 };
 
-      <h2>What is your name?</h2>
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: uluru,
+        });
 
-      <input v-model="username" type="text" />
-      <button v-on:click="greet">Greetings!</button>
+        var marker = new google.maps.Marker({ position: uluru, map: map });
+      }
+    </script>
 
-      <h2>{{ greeting }}</h2>
-    </div>
-    <script src="main.js"></script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHtuUTxJUmmu5uV4cmssPGxZAzgB8d3Rg&callback=initMap"
+    ></script>
+    <script>
+      main.js;
+    </script>
   </body>
 </html>
