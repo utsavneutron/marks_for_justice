@@ -4,8 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0" />
     <title>World View</title>
+
     <link href="style.css" rel="stylesheet" />
     <link href="menu.css" rel="stylesheet" />
+    <link href="sidebar.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
     <!--<link href="style.css" rel="stylesheet">-->
     <style>
       /* Set the size of the div element that contains the map */
@@ -43,6 +47,32 @@
       <div class="pinpoint">
         <button class="pin" onclick="addMarker()">Add Marker</button>
       </div>
+
+      <input type="checkbox" id="check" />
+      <label for="check">
+        <i class="fas fa-arrow-left" id="button"></i>
+        <i class="fas fa-times" id="cancel"></i>
+      </label>
+      <div class="sidebar">
+        <header>Be the Change</header>
+        <ul>
+          <li>
+            <label for="name"
+              >Name<br />
+              <input type:"textbox" id="tbox"></label
+            >
+          </li>
+          <li>
+            <label for="suggestion"
+              >Your Thoughts <input type:"text" id="text"></label
+            >
+          </li>
+          <li>
+            <label for="submit"><input type="submit" value="Submit" /></label>
+          </li>
+        </ul>
+      </div>
+
       <div class="menu-wrap">
         <input type="checkbox" class="toggler" />
         <div class="hamburger"><div></div></div>
@@ -60,6 +90,7 @@
         </div>
       </div>
     </div>
+
     <div id="map"></div>
     <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
     <script
