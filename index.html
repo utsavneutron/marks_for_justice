@@ -20,49 +20,6 @@
         margin: 0;
         padding: 0;
       }
-
-      .map-control {
-        margin-right: 1em;
-        margin-top: 0.5em;
-        padding: 5px;
-        border-radius: 3px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        /*box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);*/
-        font-family: "Roboto", "sans-serif";
-        display: none;
-      }
-
-      #map .map-control {
-        display: block;
-      }
-
-      #content {
-        background-color: #fff;
-        animation-name: show-content;
-        animation-delay: 1s;
-      }
-
-      .content-string {
-        background-color: #fff;
-        margin-right: 15px;
-        margin-left: 15px;
-        padding: 10px;
-        font-family: "Roboto", "sans-serif";
-        display: block;
-      }
-
-      .content-string:hover {
-        background-color: lightgray;
-      }
-
-      .first-heading {
-        padding: 10px;
-      }
-
-      #body-content {
-        font-size: 1.5em;
-      }
     </style>
   </head>
   <body>
@@ -84,6 +41,11 @@
       />
       <label for="default-view">Default View</label>
     </div>
+
+    <div class="pinpoint">
+      <button class="pin">Pin</button>
+    </div>
+
     <div class="menu-wrap">
       <input type="checkbox" class="toggler" />
       <div class="hamburger"><div></div></div>
