@@ -38,6 +38,44 @@
       }
     </style>
   </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0" />
+    <title>WorldView</title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="menu.css" rel="stylesheet" />
+    <!--<link href="style.css" rel="stylesheet">-->
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 100%; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .map-control {
+        margin-right: 1em;
+        margin-top: 0.5em;
+        padding: 5px;
+        border-radius: 3px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        /*box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);*/
+        font-family: "Roboto", "sans-serif";
+        display: none;
+      }
+
+      #map .map-control {
+        display: block;
+      }
+    </style>
+  </head>
   <body>
     <!--The div element for the map -->
     <div id="style-selector-control" class="map-control">
@@ -122,8 +160,8 @@
             position: { lat: location.lat, lng: location.lng },
           });
           // Function when marker is clicked
-          m.addListener("click", () => {
-            console.log("Marker name: " + m.getTitle());
+          m.addListener("click", function () {
+            markerwindow.open(map, m);
           });
           return m;
         });
@@ -144,11 +182,14 @@
           "Aboriginal people of the area. It has many springs, waterholes, " +
           "rock caves and ancient paintings. Uluru is listed as a World " +
           "Heritage Site.</p>" +
-          '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+          '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194" target="_blank">' +
           "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
           "(last visited June 22, 2009).</p>" +
           "</div>" +
           "</div>";
+        var markerwindow = new google.maps.InfoWindow({
+          content: contentString,
+        });
 
         var infowindow = new google.maps.InfoWindow({
           content: contentString,
@@ -180,11 +221,14 @@
 
       // Put locations here
       var locations = [
-        { name: "Region1", lat: -31.56391, lng: 147.154312 },
-        { name: "Region2", lat: -33.718234, lng: 150.363181 },
+        { name: "Venezuala", lat: 10.5, lng: -66.916664 },
+        { name: "Columbia", lat: 5.5, lng: -75.916664 },
+
+        { name: "Hong Kong", lat: 22.302711, lng: 114.177216 },
         { name: "Belarus", lat: 53.893009, lng: 27.567444 },
         { name: "Yemen", lat: 12.8, lng: 45.033333 },
         { name: "Xinjian, China", lat: 44.402393, lng: 86.154785 },
+        { name: "South Sudan", lat: 4.859363, lng: 31.571251 },
         // {lat: -33.851702, lng: 151.216968},
         // {lat: -34.671264, lng: 150.863657},
         // {lat: -35.304724, lng: 148.662905},
