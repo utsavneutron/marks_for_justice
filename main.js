@@ -6,7 +6,7 @@ new Vue({
   },
   methods: {
     greet: function () {
-      this.greeting = "Hi, ";
+      this.greeting = "Hi, Young Padawan";
       this.greeting = this.greeting.concat(this.username, "!");
     },
   },
