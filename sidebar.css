@@ -1,108 +1,115 @@
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+    }
+    
+    .sidebar {
+        position: absolute;
+        top: 100px;
+        right: -310px;
+        width: 290px;
+        height: 100%;
+        background: #042331;
+        transition: all 0.5s ease;
+    }
+    
+    .sidebar header {
+        font-size: 22px;
+        font-family: "Times New Roman", Times, serif;
+        color: white;
+        text-align: center;
+        line-height: 70px;
+        background: #063146;
+        user-select: none;
+    }
+    
+    .sidebar ul label {
+        display: block;
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        line-height: 55px;
+        font-size: 20px;
+        color: white;
+        padding-right: 0px;
+        box-sizing: border-box;
+        background: #074f74;
+        border-top: 1px solid rgba((255, 255, 255, 0.1));
+        border-bottom: 1px solid black;
+        transition: 0.4s;
+    }
+    
+    .sidebar ul label #text {
+        height: 90px;
+        width: 250px;
+        font-size: 15px;
+    }
+    
+    .sidebar ul label #tbox {
+        height: 40px;
+        width: 250px;
+        font-size: 30;
+        text-align: center;
+        word-wrap: normal;
+    }
+    
+    ul li:hover a {
+        padding-right: 50px;
+    }
+    
+    .sidebar ul a i {
+        margin-left: 16px;
+    }
+    
+    #check {
+        display: none;
+    }
+    
+    label #button,
+    label #cancel {
+        position: fixed;
+        cursor: pointer;
+    }
+    
+    label #button {
+        right: 0px;
+        top: 180px;
+        font-size: 35px;
+        color: white;
+        padding: 6px 12px;
+        transition: all 0.5s ease;
+    }
+    
+    label #cancel {
+        z-index: 0;
+        right: -195px;
+        top: 180px;
+        font-size: 30px;
+        color: white;
+        padding: 4px 9px;
+        transition: all 0.5s ease;
+    }
+    
+    #check:checked ~ .sidebar {
+        right: 0;
+    }
+    
+    #check:checked ~ label #button {
+        right: 250px;
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    #check:checked ~ label #cancel {
+        right: 300px;
+    }
 
-.sidebar {
-  position: absolute;
-  top: 100px;
-  right: -310px;
-  width: 290px;
-  height: 100%;
-  background: #042331;
-  transition: all 0.5s ease;
-}
-
-.sidebar header {
-  font-size: 22px;
-  font-family: "Times New Roman", Times, serif;
-  color: white;
-  text-align: center;
-  line-height: 70px;
-  background: #063146;
-  user-select: none;
-}
-
-.sidebar ul label {
-  display: block;
-  font-family: "Times New Roman", Times, serif;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  line-height: 55px;
-  font-size: 20px;
-  color: white;
-  padding-right: 0px;
-  box-sizing: border-box;
-  background: #074f74;
-  border-top: 1px solid rgba((255, 255, 255, 0.1));
-  border-bottom: 1px solid black;
-  transition: 0.4s;
-}
-
-.sidebar ul label #text {
-  height: 90px;
-  width: 250px;
-  font-size: 15px;
-}
-
-.sidebar ul label #tbox {
-  height: 40px;
-  width: 250px;
-  font-size: 30;
-  text-align: center;
-  word-wrap: normal;
-}
-
-ul li:hover a {
-  padding-right: 50px;
-}
-
-.sidebar ul a i {
-  margin-left: 16px;
-}
-
-#check {
-  display: none;
-}
-
-label #button,
-label #cancel {
-  position: fixed;
-  cursor: pointer;
-}
-
-label #button {
-  right: 0px;
-  top: 350px;
-  font-size: 35px;
-  color: white;
-  padding: 6px 12px;
-  transition: all 0.5s ease;
-}
-
-label #cancel {
-  z-index: 1111;
-  right: -195px;
-  top: 350px;
-  font-size: 30px;
-  color: #0a5275;
-  padding: 4px 9px;
-  transition: all 0.5s ease;
-}
-
-#check:checked ~ .sidebar {
-  right: 0;
-}
-
-#check:checked ~ label #button {
-  right: 250px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-#check:checked ~ label #cancel {
-  right: 300px;
-}
+    #text {
+        max-width: 95%;
+        min-width: 95%;
+        min-height: 50px;
+        max-height: 175px;
+    }

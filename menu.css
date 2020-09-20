@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .menu-wrap .toggler {
@@ -105,6 +105,11 @@
   justify-content: center;
 }
 
+.menu:hover {
+  text-decoration-color: #042331;
+  text-emphasis: zoom;
+}
+
 .menu-wrap .menu > div {
   background: var(--overlay-color);
   border-radius: 50%;
@@ -128,7 +133,7 @@
 
 .menu-wrap .menu > div > div > ul > li {
   list-style: none;
-  color: #fff;
+  color: rgb(115, 117, 143);
   font-size: 1.5rem;
   padding: 1rem;
 }
@@ -136,5 +141,12 @@
 .menu-wrap .menu > div > div > ul > li > a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.4s ease;
+  transition: all 0.4s ease;
+  padding: 8px 16px;
+}
+
+.menu-wrap .menu > div > div > ul > li > a:hover {
+  font-size: 45px;
+  color: #ffffff;
+  text-shadow: #4b4f5a;
 }
