@@ -1,417 +1,211 @@
-:root {
-  --primary-color: rgba(255, 255, 255, 0.123);
-  --overlay-color: rgba(24, 39, 51, 0.85);
-  --menu-speed: 0.8s;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.map-control {
-  margin-right: -50px;
-  margin-top: 65px;
-  padding: 8px 16px;
-  font-size: 18px;
-  font-family: "montserrat";
-  border-radius: 3px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  /*box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);*/
-  font-family: "Roboto", "sans-serif";
-  display: none;
-}
-
-#map .map-control {
-  display: block;
-}
-
-#content {
-  background-color: #fff;
-  font-family: "Roboto", "sans-serif";
-  min-width: 16em;
-}
-
-.content-string {
-  background-color: #fff;
-  margin-right: 15px;
-  margin-left: 15px;
-  padding: 10px;
-  display: block;
-}
-
-.content-string:hover {
-  background-color: lightgray;
-}
-
-.first-heading {
-  min-width: 16em;
-  padding: 10px;
-}
-
-#body-content {
-  font-size: 1.5em;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/*Button for the Pin*/
-.pinpoint {
-  position: absolute;
-  top: 40px;
-  right: 0px;
-  margin: 0;
-  padding: 0;
-  z-index: 1;
-  display: flex;
-}
-
-.pin {
-  border: 1px;
-  border-radius: 3px;
-  background: rgb(79, 155, 255);
-  padding: 12px 24px;
-  font-size: 18px;
-  font-family: "montserrat";
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.8s;
-  position: relative;
-  overflow: hidden;
-}
-
-.pin {
-  color: #000102;
-}
-
-.pin:hover {
-  color: rgb(248, 241, 241);
-  background-color: rgb(16, 16, 65);
-}
-.pin::before {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  width: 100%;
-  height: 0%;
-  background: rgb(9, 10, 32);
-  z-index: -1;
-  transition: 0.8s;
-}
-
-.pin:hover::before {
-  height: 180%;
-}
-
-/*Button for the tick*/
-.tickbox {
-  position: absolute;
-  top: 40px;
-  right: 130px;
-  margin: 0;
-  padding: 0;
-  z-index: 1;
-  display: flex;
-}
-
-.tick {
-  border: 1px;
-  border-radius: 3px;
-  background: rgb(33, 175, 52);
-  padding: 12px 24px;
-  font-size: 18px;
-  font-family: "montserrat";
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.8s;
-  position: relative;
-  overflow: hidden;
-}
-
-.tick {
-  color: #000102;
-}
-
-.tick:hover {
-  color: rgb(248, 241, 241);
-  background-color: rgba(10, 85, 10, 0.979);
-}
-.tick::before {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  width: 100%;
-  height: 0%;
-  background: rgb(9, 10, 32);
-  z-index: -1;
-  transition: 0.8s;
-}
-
-.tick:hover::before {
-  height: 180%;
-}
-
-/* Button for cross*/
-.crossbox {
-  position: absolute;
-  top: 40px;
-  right: 64px;
-  margin: 0;
-  padding: 0;
-  z-index: 1;
-  display: flex;
-  transition: 2s;
-}
-
-.cross {
-  border: 1px;
-  border-radius: 3px;
-  background: rgb(219, 56, 56);
-  padding: 12px 24px;
-  font-size: 18px;
-  font-family: "montserrat";
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.8s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.cross {
-  color: #000102;
-}
-
-.cross:hover {
-  color: rgb(248, 241, 241);
-  background-color: rgba(90, 6, 6, 0.979);
-}
-.cross::before {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  width: 100%;
-  height: 0%;
-  background: rgb(9, 10, 32);
-  z-index: -1;
-  transition: 0.8s;
-}
-
-.cross:hover::before {
-  height: 180%;
-}
-:root {
-  --primary-color: rgba(255, 255, 255, 0.123);
-  --overlay-color: rgba(24, 39, 51, 0.85);
-  --menu-speed: 0.6s;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.map-control {
-  margin-right: -50px;
-  margin-top: 65px;
-  padding: 8px 16px;
-  font-size: 18px;
-  font-family: "montserrat";
-  border-radius: 3px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  /*box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);*/
-  font-family: "Roboto", "sans-serif";
-  display: none;
-}
-
-#map .map-control {
-  display: block;
-}
-
-#content {
-  background-color: #fff;
-  font-family: "Roboto", "sans-serif";
-  min-width: 16em;
-}
-
-.content-string {
-  background-color: #fff;
-  margin-right: 15px;
-  margin-left: 15px;
-  padding: 10px;
-  display: block;
-}
-
-.content-string:hover {
-  background-color: lightgray;
-}
-
-.first-heading {
-  min-width: 16em;
-  padding: 10px;
-}
-
-#body-content {
-  font-size: 1.5em;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/*Button for the Pin*/
-.pinpoint {
-  position: absolute;
-  top: 40px;
-  right: 0px;
-  margin: 0;
-  padding: 0;
-  z-index: 1;
-  display: flex;
-}
-
-.pin {
-  border: 1px;
-  border-radius: 3px;
-  background: rgb(79, 155, 255);
-  padding: 12px 24px;
-  font-size: 18px;
-  font-family: "montserrat";
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-
-.pin {
-  color: #000102;
-}
-
-.pin:hover {
-  color: rgb(248, 241, 241);
-  background-color: rgb(16, 16, 65);
-}
-.pin::before {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  width: 100%;
-  height: 0%;
-  background: rgb(9, 10, 32);
-  z-index: -1;
-  transition: 0.4s;
-}
-
-.pin:hover::before {
-  height: 180%;
-}
-
-/*Button for the tick*/
-.tickbox {
-  position: absolute;
-  top: 40px;
-  right: 130px;
-  margin: 0;
-  padding: 0;
-  z-index: 1;
-  display: flex;
-}
-
-.tick {
-  border: 1px;
-  border-radius: 3px;
-  background: rgb(33, 175, 52);
-  padding: 12px 24px;
-  font-size: 18px;
-  font-family: "montserrat";
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-
-.tick {
-  color: #000102;
-}
-
-.tick:hover {
-  color: rgb(248, 241, 241);
-  background-color: rgba(10, 85, 10, 0.979);
-}
-.tick::before {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  width: 100%;
-  height: 0%;
-  background: rgb(9, 10, 32);
-  z-index: -1;
-  transition: 0.4s;
-}
-
-.tick:hover::before {
-  height: 180%;
-}
-
-/* Button for cross*/
-.crossbox {
-  position: absolute;
-  top: 40px;
-  right: 64px;
-  margin: 0;
-  padding: 0;
-  z-index: 1;
-  display: flex;
-}
-
-.cross {
-  border: 1px;
-  border-radius: 3px;
-  background: rgb(219, 56, 56);
-  padding: 12px 24px;
-  font-size: 18px;
-  font-family: "montserrat";
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-
-.cross {
-  color: #000102;
-}
-
-.cross:hover {
-  color: rgb(248, 241, 241);
-  background-color: rgba(90, 6, 6, 0.979);
-}
-.cross::before {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  width: 100%;
-  height: 0%;
-  background: rgb(9, 10, 32);
-  z-index: -1;
-  transition: 0.4s;
-}
-
-.cross:hover::before {
-  height: 180%;
-}
+    :root {
+        --primary-color: rgba(255, 255, 255, 0.123);
+        --overlay-color: rgba(24, 39, 51, 0.85);
+        --menu-speed: 0.6s;
+    }
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .map-control {
+        margin-right: -50px;
+        margin-top: 65px;
+        padding: 8px 16px;
+        font-size: 18px;
+        font-family: "montserrat";
+        border-radius: 3px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        /*box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);*/
+        font-family: "Roboto", "sans-serif";
+        display: none;
+    }
+    
+    #map .map-control {
+        display: block;
+    }
+    
+    #content {
+        background-color: #fff;
+        font-family: "Roboto", "sans-serif";
+        min-width: 16em;
+    }
+    
+    .content-string {
+        background-color: #fff;
+        margin-right: 15px;
+        margin-left: 15px;
+        padding: 10px;
+        display: block;
+    }
+    
+    .content-string:hover {
+        background-color: lightgray;
+    }
+    
+    .first-heading {
+        min-width: 16em;
+        padding: 5px;
+        border-bottom: 1px solid rgb(134, 134, 134);
+    }
+    
+    #body-content {
+        padding-top: 10px;
+        margin-left: 0.5em;
+        font-size: 1.5em;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /*Button for the Pin*/
+    .pinpoint {
+        position: absolute;
+        top: 40px;
+        right: 0px;
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+        display: flex;
+    }
+    
+    .pin {
+        border: 1px;
+        border-radius: 3px;
+        background: rgb(79, 155, 255);
+        padding: 12px 24px;
+        font-size: 18px;
+        font-family: "montserrat";
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.4s;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .pin {
+        color: #000102;
+    }
+    
+    .pin:hover {
+        color: rgb(248, 241, 241);
+        background-color: rgb(16, 16, 65);
+    }
+    .pin::before {
+        content: "";
+        position: absolute;
+    
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background: rgb(9, 10, 32);
+        z-index: -1;
+        transition: 0.4s;
+    }
+    
+    .pin:hover::before {
+        height: 180%;
+    }
+    
+    /*Button for the tick*/
+    .tickbox {
+        position: absolute;
+        top: 40px;
+        right: 130px;
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+        display: flex;
+    }
+    
+    .tick {
+        border: 1px;
+        border-radius: 3px;
+        background: rgb(33, 175, 52);
+        padding: 12px 24px;
+        font-size: 18px;
+        font-family: "montserrat";
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.4s;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .tick {
+        color: #000102;
+    }
+    
+    .tick:hover {
+        color: rgb(248, 241, 241);
+        background-color: rgba(10, 85, 10, 0.979);
+    }
+    .tick::before {
+        content: "";
+        position: absolute;
+    
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background: rgb(9, 10, 32);
+        z-index: -1;
+        transition: 0.4s;
+    }
+    
+    .tick:hover::before {
+        height: 180%;
+    }
+    
+    /* Button for cross*/
+    .crossbox {
+        position: absolute;
+        top: 40px;
+        right: 64px;
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+        display: flex;
+    }
+    
+    .cross {
+        border: 1px;
+        border-radius: 3px;
+        background: rgb(219, 56, 56);
+        padding: 12px 24px;
+        font-size: 18px;
+        font-family: "montserrat";
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.4s;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cross {
+        color: #000102;
+    }
+    
+    .cross:hover {
+        color: rgb(248, 241, 241);
+        background-color: rgba(90, 6, 6, 0.979);
+    }
+    .cross::before {
+        content: "";
+        position: absolute;
+    
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background: rgb(9, 10, 32);
+        z-index: -1;
+        transition: 0.4s;
+    }
+    
+    .cross:hover::before {
+        height: 180%;
+    }
