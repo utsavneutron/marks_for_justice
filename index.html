@@ -45,7 +45,21 @@
       />
       <label for="default-view">Default View</label>
       <div class="pinpoint">
-        <button class="pin" onclick="addMarker()">Add Marker</button>
+        <button class="pin" onclick="addMarker()">
+          <i class="fa fa-map-pin" aria-hidden="true" id="pinbutt"></i>
+        </button>
+      </div>
+
+      <div class="tickbox">
+        <button class="tick" onclick="">
+          <i class="fa fa-check" aria-hidden="true" id="ticky"></i>
+        </button>
+      </div>
+
+      <div class="crossbox">
+        <button class="cross" onclick="">
+          <i class="fas fa-times" aria-hidden="true" id="crossy"></i>
+        </button>
       </div>
 
       <input type="checkbox" id="check" />
@@ -64,15 +78,15 @@
           </li>
           <li>
             <label for="suggestion"
-              >Your Thoughts <input type:"text" id="text"></label
-            >
+              >Your Thoughts
+              <textarea id="text" rows="0" cols="15"></textarea>
+            </label>
           </li>
           <li>
             <label for="submit"><input type="submit" value="Submit" /></label>
           </li>
         </ul>
       </div>
-
       <div class="menu-wrap">
         <input type="checkbox" class="toggler" />
         <div class="hamburger"><div></div></div>

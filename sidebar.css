@@ -43,9 +43,9 @@
 }
 
 .sidebar ul label #text {
-  height: 110px;
+  height: 90px;
   width: 250px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .sidebar ul label #tbox {
