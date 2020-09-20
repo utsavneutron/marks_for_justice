@@ -1,4 +1,4 @@
-_ Discrimination and Injustice is real and it happens everywhere in the world in a daily basis. Some realize it and don't act, some never realize it and even deny it while few realize it and act on it. Which one are you? _
+Discrimination and Injustice is real and it happens everywhere in the world in a daily basis. Some realize it and don't act, some never realize it and even deny it while few realize it and act on it.
 
 Our goal for this project was to enable the viewer to see the world through two different perspectives: The first perspective which represents the average person who goes about living their life unaware of what goes on in the world and the other perspective of someone who is willing to help people in need and use their voice for the people who need it most.
 
