@@ -50,13 +50,13 @@ let locations = [
     "6700+ people arrested since they began, two died in police custody.<br>"+
     "Police brutality increased (responding w tear gas, rubber bullets etc) although most protests are peaceful.<br><br>"+
     "How to help: <br>"+
-    '<a href="https://www.usatoday.com/in-depth/news/2020/09/08/water-belarus-demonstrators-borrow-tactics-hong-kong-protests-they-rally-democracy/3437180001/%22%3Ehttps://www.usatoday.com/in-depth/news/2020/09/08/water-belarus-demonstrators-borrow-tactics-hong-kong-protests-they-rally-democracy/3437180001/</a><br>'+
-    '<a href="https://www.crisisgroup.org/europe-central-asia/eastern-europe/belarus/how-help-belarus%22%3Ehttps://www.crisisgroup.org/europe-central-asia/eastern-europe/belarus/how-help-belarus%7D</a><br>'
+    '<a href="https://www.usatoday.com/in-depth/news/2020/09/08/water-belarus-demonstrators-borrow-tactics-hong-kong-protests-they-rally-democracy/3437180001/%22%3Ehttps://www.usatoday.com/in-depth/news/2020/09/08/water-belarus-demonstrators-borrow-tactics-hong-kong-protests-they-rally-democracy/3437180001>https://www.usatoday.com/in-depth/news/2020/09/08/water-belarus-demonstrators-borrow-tactics-hong-kong-protests-they-rally-democracy/3437180001/%22%3Ehttps://www.usatoday.com/in-depth/news/2020/09/08/water-belarus-demonstrators-borrow-tactics-hong-kong-protests-they-rally-democracy/3437180001</a><br>'+
+    '<a href="https://www.crisisgroup.org/europe-central-asia/eastern-europe/belarus/how-help-belarus%7D">https://www.crisisgroup.org/europe-central-asia/eastern-europe/belarus/how-help-belarus%7D</a><br>'
     },
     {title: "Humanitarian Crisis-Political and Economic Turmoil", lat: 7.029530, lng: -66.254809, description:
     "Venezuela is in crisis. The economy has collapsed, and an uprising of political opposition to President Nicolas Maduro has put the country’s leadership in question.<br>"+
     "About 5 million Venezuelan people have left the country seeking food, work, and a better life.<br>"+
-    '<a href="https://donate.worldvision.org/give/venezuela-relief-fund?campaign=3100857%22%3Ehttps://donate.worldvision.org/give/venezuela-relief-fund?campaign=3100857</a><br>'
+    '<a href="https://donate.worldvision.org/give/venezuela-relief-fund?campaign=3100857">https://donate.worldvision.org/give/venezuela-relief-fund?campaign=3100857</a><br>'
     },
     {title: "Displacement and Food Insecurity", lat: 7.519221, lng: 29.999696, description:
     "More than half the country’s population require humanitarian assistance.<br>"+
@@ -65,15 +65,14 @@ let locations = [
     "Violence between muslim + christian groups broke out in 2012.<br>"+
     "This led to lack of access to basic thing + education + health care services.<br><br>"+
     "How to help: <br>" +
-    '<a href="https://www.rescue.org/country/central-african-republic#what-caused-the-current-crisis-in-car%22%3Ehttps://www.rescue.org/country/central-african-republic#what-caused-the-current-crisis-in-car</a><br>'+
-    '<a href="https://www.crisisgroup.org/africa/central-africa/central-african-republic%22%3Ehttps://www.crisisgroup.org/africa/central-africa/central-african-republic</a><br>'
+    '<a href="https://www.rescue.org/country/central-african-republic#what-caused-the-current-crisis-in-car">https://www.rescue.org/country/central-african-republic#what-caused-the-current-crisis-in-car</a><br>'
     },
     {title: "Syria Refugee Crisis", lat: 33.816001, lng: 65.080268, description:
     "About 5.6 million Syrians are refugees, and another 6.2 million people are displaced within Syria.<br>"+ 
     "Nearly 12 million people in Syria need humanitarian assistance.<br>" + 
     "At least half of the people affected by the Syrian refugee crisis are children.<br><br>"+
     "How to help: <br>" +
-    '<a href="https://donate.worldvision.org/give/refugee-childrens-crisis-fund?campaign=3100858%22%3Ehttps://donate.worldvision.org/give/refugee-childrens-crisis-fund?campaign=3100858</a><br>'
+    '<a href="https://donate.worldvision.org/give/refugee-childrens-crisis-fund?campaign=3100858%22%3E">https://donate.worldvision.org/give/refugee-childrens-crisis-fund?campaign=3100858</a><br>'
     }
 ];
 
