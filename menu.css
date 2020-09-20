@@ -105,11 +105,6 @@
   justify-content: center;
 }
 
-.menu:hover {
-  text-decoration-color: #042331;
-  text-emphasis: zoom;
-}
-
 .menu-wrap .menu > div {
   background: var(--overlay-color);
   border-radius: 50%;
@@ -142,11 +137,15 @@
   color: inherit;
   text-decoration: none;
   transition: all 0.4s ease;
-  padding: 8px 16px;
+  padding: 10px 20px;
+  font-family: "verdana";
+  border-radius: 12px;
+  border: 6px;
 }
 
 .menu-wrap .menu > div > div > ul > li > a:hover {
   font-size: 45px;
   color: #ffffff;
-  text-shadow: #4b4f5a;
+  /*text-shadow: #4b4f5a;*/
+  background-color: #9097a111;
 }
