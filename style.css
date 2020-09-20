@@ -167,6 +167,7 @@ body {
   padding: 0;
   z-index: 1;
   display: flex;
+  transition: 2s;
 }
 
 .cross {
@@ -178,7 +179,7 @@ body {
   font-family: "montserrat";
   cursor: pointer;
   margin: 10px;
-  transition: 0.8s;
+  transition: 0.8s ease;
   position: relative;
   overflow: hidden;
 }
