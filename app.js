@@ -6,39 +6,32 @@ const MAP_BOUNDS = {
     east: 180
 };
 
+const LOREM_IPSUM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
 // Put locations here
 let locations = [
-    {title: "Region1", lat: -31.563910, lng: 147.154312},
-    {title: "Region2", lat: -33.718234, lng: 150.363181},
-    {title: "Region3", lat: -33.727111, lng: 150.371124},
-    {title: "Region4", lat: -33.848588, lng: 151.209834},
-    {title: "Region5", lat: -34.671264, lng: 150.863657},
-    {title: "Region6", lat: -35.304724, lng: 148.662905},
-    {title: "Region7", lat: -36.817685, lng: 175.699196},
-    {title: "Region8", lat: -36.828611, lng: 175.790222},
-    {title: "Region9", lat: -37.750000, lng: 145.116667},
-    {title: "Region10", lat: -37.759859, lng: 145.128708},
-    {title: "Region11", lat: -37.765015, lng: 145.133858},
-    {title: "Region12", lat: -37.770104, lng: 145.143299},
-    {title: "Region13", lat: -37.773700, lng: 145.145187},
-    {title: "Region14", lat: -37.774785, lng: 145.137978},
-    {title: "Region15", lat: -37.819616, lng: 144.968119},
-    {title: "Region16", lat: -38.330766, lng: 144.695692},
-    {title: "Region17", lat: -39.927193, lng: 175.053218},
-    {title: "Region18", lat: -41.330162, lng: 174.865694},
-    {title: "Region19", lat: -42.734358, lng: 147.439506},
-    {title: "Region20", lat: -42.734358, lng: 147.501315},
-    {title: "Region21", lat: -42.735258, lng: 147.438000},
-    {title: "Region22", lat: -43.999792, lng: 170.463352}
+    {title: "Muslim Concentration Camps", lat: 34.128627, lng: 105.766435},
+    {title: "USPS Crisis", lat: 39.970170, lng: -102.108303},
+    {title: "Humanitarian Crisis", lat: 15.852868, lng:  47.422535},
+    {title: "Anti-Government Protests", lat: 22.321631, lng: 114.175968},
+    {title: "Pro-Democracy Protests", lat: 53.172411, lng: 28.361114},
+    {title: "Humanitarian Crisis-Political and Economic Turmoil", lat: 7.029530, lng: -66.254809},
+    {title: "Displacement and Food Insecurity", lat: 7.519221, lng: 29.999696},
+    {title: "Syria Refugee Crisis", lat: 33.816001, lng: 65.080268}
 ];
 
 let map;
 let markers;
 let markerClusterer;
+let newMarker;
+
 let infowindow, contentString;
 
 function initMap() {
-
     map = new google.maps.Map(document.getElementById("map"), {
         restriction: {
             latLngBounds: MAP_BOUNDS,
@@ -47,6 +40,7 @@ function initMap() {
         zoom: 3,
         center: {lat: -28.024, lng: 140.887},
         mapTypeControl: false,
+        streetViewControl: false,
         fullscreenControlOptions: {
             position: google.maps.ControlPosition.TOP_RIGHT
         },
@@ -71,10 +65,13 @@ function initMap() {
     document.getElementById("default-view").addEventListener("click", () => {
         map.setOptions({ styles: styles["default"] });
         map.setOptions({ streetViewControl: true });
-        console.log("Hiding markers");
         setMapOnAll(null);
     });
 
+    initMarkerClusterer();
+}
+
+function initMarkerClusterer() {
     // Create an array of alphabetical characters used to label the markers.
     //var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -85,7 +82,7 @@ function initMap() {
     markers = locations.map(function(location, i) {
         const marker = new google.maps.Marker({
         title: location.title,
-        label: location.label,
+        //label: location.label,
         map: map,
         position: new google.maps.LatLng(location.lat, location.lng),
         animation: google.maps.Animation.DROP,
@@ -93,7 +90,27 @@ function initMap() {
         });
         // Function when marker is clicked
         marker.addListener("click", () => {
-            console.log("Marker name: " + marker.getTitle());
+            var description;
+            // Get description given marker title
+            for (let i = 0; i < locations.length; i++) {
+                if (locations[i].title === marker.getTitle()) {
+                    description = locations[i].description;
+                }
+            }
+
+            contentString = 
+                '<div id="content">' +
+                '<div id="site-notice">' +
+                '</div>' +
+                '<h1 id="first-heading" class="first-heading">' + marker.getTitle() + '</h1>' +
+                '<div id="body-content">' +
+                description +
+                '</div>' +
+                '</div>';
+
+            infowindow.setPosition(marker.getPosition());
+            infowindow.setContent(contentString);
+            infowindow.open(map);
         })
         return marker;
     });
@@ -102,10 +119,6 @@ function initMap() {
         content: contentString
     });
 
-    initMarkerClusterer();
-}
-
-function initMarkerClusterer() {
     // Add a marker clusterer to manage the markers.
     markerClusterer = new MarkerClusterer(map, markers, {
         imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
@@ -141,10 +154,12 @@ function initMarkerClusterer() {
 function panToPosition(lat, lng) {
     infowindow.close();
     map.setCenter(new google.maps.LatLng(lat, lng));
-    if (map.getZoom() < 12)
+    if (map.getZoom() < 12) {
         smoothZoom(map, 13, map.getZoom());
-    else
+    }
+    else {
         smoothZoom(map, 18, map.getZoom());
+    }
 }
 
 function smoothZoom (map, max, cnt) {
@@ -161,15 +176,27 @@ function smoothZoom (map, max, cnt) {
 }  
 
 function addMarker() {
-    console.log("AddMarker");
-    var marker = new google.maps.Marker({
+    if (newMarker != null) {
+        map.setCenter(newMarker.getPosition())
+        newMarker.setAnimation(google.maps.Animation.BOUNCE);
+        return;
+    }
+
+    newMarker = new google.maps.Marker({
         position: map.getCenter(),
         map: map,
-        title: "Temp",
         draggable:true,
         animation: google.maps.Animation.BOUNCE
     });
+    newMarker.addListener("click", () => {
+        if (newMarker.getAnimation() !== null) {
+            newMarker.setAnimation(null);
+        } else {
+            newMarker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    });
 }
+
 
 function setMapOnAll(map) {
     markerClusterer.clearMarkers();
@@ -183,10 +210,26 @@ function showMarkers() {
 }
 
 
-function searchMarker(title) {
-
+function cancelMarker() {
+    if (newMarker == null)
+        return;
+    newMarker.setMap(null);
+    newMarker = null;
 }
 
-function confirmMarker() {
 
+function confirmMarker() {
+    var title = document.getElementById("tbox").value
+    var description = document.getElementById("text").value
+    if (newMarker == null)
+        return;
+
+    newMarker.setAnimation(null);
+    locations.push({title: title, lat: newMarker.getPosition().lat(), lng: newMarker.getPosition().lng(), description: description});
+    newMarker.setMap(null);
+    newMarker = null;
+
+    setMapOnAll(null);
+    markerClusterer.clearMarkers();
+    initMarkerClusterer();
 }

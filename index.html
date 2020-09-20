@@ -1,117 +1,108 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0" />
-    <title>World View</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0">
+        <title>Marks For Justice</title>
+        <link href="style.css" rel="stylesheet">
+        <link href="menu.css" rel="stylesheet">
+        <link href="sidebar.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <!--<link href="style.css" rel="stylesheet">-->
+        <style>
+            /* Set the size of the div element that contains the map */
+            #map {
+                height: 100%;  /* The height is 400 pixels */
+                width: 100%;  /* The width is the width of the web page */
+            }
 
-    <link href="style.css" rel="stylesheet" />
-    <link href="menu.css" rel="stylesheet" />
-    <link href="sidebar.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-    <!--<link href="style.css" rel="stylesheet">-->
-    <style>
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 100%; /* The height is 400 pixels */
-        width: 100%; /* The width is the width of the web page */
-      }
-
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
   <body>
     <!--The div element for the map -->
     <div id="style-selector-control" class="map-control">
-      <input
-        type="radio"
-        name="show-hide"
-        id="injustice-view"
-        class="selector-control"
-        checked="checked"
-      />
-      <label for="injustice-view">Injustice View</label>
-      <input
-        type="radio"
-        name="show-hide"
-        id="default-view"
-        class="selector-control"
-      />
-      <label for="default-view">Default View</label>
-      <div class="pinpoint">
-        <button class="pin" onclick="addMarker()">
-          <i class="fa fa-map-pin" aria-hidden="true" id="pinbutt"></i>
-        </button>
-      </div>
+        <input
+            type="radio"
+            name="show-hide"
+            id="injustice-view"
+            class="selector-control"
+            checked="checked"
+        />
+        <label for="injustice-view">Injustice View</label>
+        <input
+            type="radio"
+            name="show-hide"
+            id="default-view"
+            class="selector-control"
+        />
+        <label for="default-view">Default View</label>
 
-      <div class="tickbox">
-        <button class="tick" onclick="">
-          <i class="fa fa-check" aria-hidden="true" id="ticky"></i>
-        </button>
-      </div>
+        <div id="markbox" class="pinpoint">
+            <button class="pin" onclick="addMarker()">
+                <i class="fa fa-map-pin" aria-hidden="true" id="pinbutt"></i>
+            </button>
+        </div>
+    
+        <div id= "tickbox" class="tickbox">
+            <button class="tick" onclick="confirmMarker()">
+              <i class="fa fa-check" aria-hidden="true" id="ticky"></i>
+            </button>
+          </div>
+    
+          <div id= "crossbox" class="crossbox">
+            <button class="cross" onclick="cancelMarker()">
+              <i class="fas fa-times" aria-hidden="true" id="crossy"></i>
+            </button>
+          </div>
+    
+          <input type="checkbox" id="check" />
+          <label for="check">
+            <i class="fas fa-arrow-left" id="button"></i>
+            <i class="fas fa-times" id="cancel"></i>
+          </label>
 
-      <div class="crossbox">
-        <button class="cross" onclick="">
-          <i class="fas fa-times" aria-hidden="true" id="crossy"></i>
-        </button>
-      </div>
+          <div id="sidebar" class="sidebar">
+            <header>MARK THE INJUSTICE</header>
+            <ul>
+              <li>
+                <label for="name">Act of injustice:<br/>
+                  <input type="textbox" id="tbox">
+                </label>
+              </li>
+              <li>
+                <label for="suggestion">Report:
+                    <textarea id="text" rows="10" cols="15"></textarea>
+                </label>
+              </li>
+            </ul>
+          </div>
 
-      <input type="checkbox" id="check" />
-      <label for="check">
-        <i class="fas fa-arrow-left" id="button"></i>
-        <i class="fas fa-times" id="cancel"></i>
-      </label>
-      <div class="sidebar">
-        <header>Be the Change</header>
-        <ul>
-          <li>
-            <label for="name"
-              >Name<br />
-              <input type:"textbox" id="tbox"></label
-            >
-          </li>
-          <li>
-            <label for="suggestion"
-              >Your Thoughts
-              <textarea id="text" rows="0" cols="15"></textarea>
-            </label>
-          </li>
-          <li>
-            <label for="submit"><input type="submit" value="Submit" /></label>
-          </li>
-        </ul>
-      </div>
-      <div class="menu-wrap">
-        <input type="checkbox" class="toggler" />
-        <div class="hamburger"><div></div></div>
-        <div class="menu">
-          <div>
-            <div>
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Map</a></li>
-                <li><a href="#">Organizations</a></li>
-                <li><a href="#">Contact Us</a></li>
-              </ul>
+        <div id="menu-wrap" class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger"><div></div></div>
+            <div class="menu">
+              <div>
+                <div>
+                  <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Organizations</a></li>
+                    <li><a href="#">About Us</a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
-
     <div id="map"></div>
     <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
-    <script
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHtuUTxJUmmu5uV4cmssPGxZAzgB8d3Rg&callback=initMap"
-    ></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHtuUTxJUmmu5uV4cmssPGxZAzgB8d3Rg&callback=initMap"></script>
     <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript" src="mapstyles.js"></script>
+    <script type="text/javascript" src="mapstyles.js"></script> 
   </body>
 </html>
