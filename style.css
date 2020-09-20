@@ -162,7 +162,7 @@ body {
 .crossbox {
   position: absolute;
   top: 40px;
-  right: -100px;
+  right: 64px;
   margin: 0;
   padding: 0;
   z-index: 1;
@@ -205,8 +205,4 @@ body {
 
 .cross:hover::before {
   height: 180%;
-}
-
-#pin:onclick() ~ .crossbox {
-  right: 64px;
 }
